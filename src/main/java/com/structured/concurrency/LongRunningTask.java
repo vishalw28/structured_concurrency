@@ -51,6 +51,8 @@ public class LongRunningTask implements Callable<TaskResponse> {
     public static void main(String[] args) throws InterruptedException {
         System.out.println("> Main: Started");
         LongRunningTask task = new LongRunningTask("LongTask1", 10, "json-response1", true);
+
+        // Just set one of the fail flag to true to fail the task.
         var dbTask = new LongRunningTask("dataTask", 3, "row1", false);
         var restTask = new LongRunningTask("restTask", 10, "json2", false);
         var extTask = new LongRunningTask("extTask", 5, "json2", false);
